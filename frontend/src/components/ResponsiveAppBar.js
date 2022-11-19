@@ -40,7 +40,7 @@ export function ResponsiveAppBar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters color="primary">
+        <Toolbar disableGutters>
           <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           {/* <Typography
             variant="h6"
@@ -67,7 +67,7 @@ export function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="white"
             >
               <MenuIcon />
             </IconButton>
