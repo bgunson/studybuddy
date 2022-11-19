@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
-import { WelcomePage } from "./WelcomePage";
-import { TodoItemsPage } from "./TodoItemsPage";
+import { WelcomePage } from "../pages/WelcomePage";
+import { TodoItemsPage } from "../pages/TodoItemsPage";
+import { LandingPage } from "../pages/LandingPage";
 import { RealmAppProvider, useRealmApp } from "./RealmApp";
 import { ThemeProvider } from "./Theme";
 import { AppName } from "./AppName";
@@ -37,7 +38,7 @@ function App() {
           ) : null}
         </Toolbar>
       </AppBar>
-      {currentUser ? <TodoItemsPage /> : <WelcomePage />}
+      {currentUser ? <LandingPage /> : <WelcomePage />}
     </div>
   );
 }

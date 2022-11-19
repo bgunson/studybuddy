@@ -8,13 +8,12 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { useTodos } from "../hooks/useTodos";
-import { TodoItem } from "./TodoItem";
+import { TodoItem } from "../components/TodoItem";
 import { useDraftTodos } from "../hooks/useDraftTodos";
-import { DraftTodoItem } from "./DraftTodoItem";
+import { DraftTodoItem } from "../components/DraftTodoItem";
 import { useShowLoader } from "../hooks/util-hooks";
-import { MoreInfo } from "./MoreInfo";
 
-export function TodoItemsPage() {
+export function LandingPage() {
   const { loading, todos, ...todoActions } = useTodos();
   const { draftTodos, ...draftTodoActions } = useDraftTodos();
   const showLoader = useShowLoader(loading, 200);
@@ -27,19 +26,17 @@ export function TodoItemsPage() {
       ) : (
         <div className="todo-items-container">
           <Typography component="p" variant="h5">
-            {`You have ${todos.length} To-Do Item${
-              todos.length === 1 ? "" : "s"
-            }`}
+            Welcome, StudyBuddy!
           </Typography>
           <Button
             variant="contained"
             color="primary"
-            startIcon={<AddIcon />}
+            // startIcon={<AddIcon />}
             onClick={() => draftTodoActions.createDraftTodo()}
           >
-            Add To-Do
+            Start Session
           </Button>
-          <List style={{ width: "100%" }}>
+          {/* <List style={{ width: "100%" }}>
             {todos.map((todo) => (
               <TodoItem
                 key={String(todo._id)}
@@ -55,10 +52,9 @@ export function TodoItemsPage() {
                 draftTodoActions={draftTodoActions}
               />
             ))}
-          </List>
+          </List> */}
         </div>
       )}
-      <MoreInfo />
     </Container>
   );
 }

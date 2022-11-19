@@ -11,8 +11,7 @@ import {
 } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { useRealmApp } from "./RealmApp";
-import { MoreInfoTemplateAndDocs } from "./MoreInfo";
+import { useRealmApp } from "../components/RealmApp";
 import { toggleBoolean } from "../utils";
 import { useErrorAlert } from "../hooks/useErrorAlert";
 
@@ -116,7 +115,6 @@ export function WelcomePage() {
           </button>
         </form>
       </Card>
-      <MoreInfoTemplateAndDocs />
     </Container>
   );
 }
