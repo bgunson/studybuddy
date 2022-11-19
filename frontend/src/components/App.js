@@ -7,6 +7,7 @@ import { ThemeProvider } from "./Theme";
 import { AppName } from "./AppName";
 import { appId } from "../realm.json";
 import "./App.css";
+import { ResponsiveAppBar } from "./ResponsiveAppBar";
 
 export default function AppWithRealm() {
   return (
@@ -22,9 +23,9 @@ function App() {
   const { currentUser, logOut } = useRealmApp();
   return (
     <div className="App">
-      <AppBar position="sticky">
-        <Toolbar>
-          <AppName />
+      <ResponsiveAppBar/>
+     {/* <AppBar position="sticky"> */}
+          {/* <AppName />
           {currentUser ? (
             <Button
               variant="contained"
@@ -35,9 +36,8 @@ function App() {
             >
               <Typography variant="button">Log Out</Typography>
             </Button>
-          ) : null}
-        </Toolbar>
-      </AppBar>
+          ) : null} */}
+      {/* </AppBar> */}
       {currentUser ? <LandingPage /> : <WelcomePage />}
     </div>
   );
