@@ -1,5 +1,8 @@
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
 import { WelcomePage } from "../pages/WelcomePage";
+
+import { DashboardPage } from '../pages/DashboardPage';
+
 import { TodoItemsPage } from "../pages/TodoItemsPage";
 import { LandingPage } from "../pages/LandingPage";
 import { RealmAppProvider, useRealmApp } from "./RealmApp";
@@ -38,7 +41,7 @@ function App() {
           ) : null}
         </Toolbar>
       </AppBar>
-      {currentUser ? <LandingPage /> : <WelcomePage />}
+      {currentUser ? <DashboardPage/> : <WelcomePage />}
     </div>
   );
 }
