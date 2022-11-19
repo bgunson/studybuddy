@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 /*  */ 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Lectures','Rooms'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function ResponsiveAppBar() {
@@ -38,7 +38,7 @@ export function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{background: '#313131'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -60,14 +60,14 @@ export function ResponsiveAppBar() {
             LOG
           </Typography> */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, color:'white', display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="white"
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -76,12 +76,12 @@ export function ResponsiveAppBar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'center',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'center',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -91,7 +91,9 @@ export function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" 
+                  
+                  >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
