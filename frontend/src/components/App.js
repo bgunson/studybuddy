@@ -8,6 +8,9 @@ import { AppName } from "./AppName";
 import { appId } from "../realm.json";
 import "./App.css";
 import { ResponsiveAppBar } from "./ResponsiveAppBar";
+import { ChatPage } from '../pages/chat/ChatPage';
+import { Routes, Route, Link } from "react-router-dom";
+
 
 export default function AppWithRealm() {
   return (
@@ -24,21 +27,12 @@ function App() {
   return (
     <div className="App">
       <ResponsiveAppBar/>
-     {/* <AppBar position="sticky"> */}
-          {/* <AppName />
-          {currentUser ? (
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={async () => {
-                await logOut();
-              }}
-            >
-              <Typography variant="button">Log Out</Typography>
-            </Button>
-          ) : null} */}
-      {/* </AppBar> */}
-      {currentUser ? <LandingPage /> : <WelcomePage />}
+      {currentUser ? 
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="/profile" element={<ProfilePage />} /> */}
+        <Route path="/chat" element={<ChatPage />} />
+      </Routes> : <WelcomePage />}
     </div>
   );
 }

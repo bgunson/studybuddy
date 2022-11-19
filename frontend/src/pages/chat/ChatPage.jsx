@@ -8,7 +8,7 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 
 let socket = null;
 
-export default function ChatPage() {
+export function ChatPage() {
     const { currentUser } = useRealmApp();
     const [messages, setMessages] = useState([]);
     const [msgInput, setMsgInput] = useState("");
