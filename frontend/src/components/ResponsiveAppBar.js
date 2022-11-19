@@ -14,9 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useRealmApp } from './RealmApp';
 
-/*  */ 
+/*  */
 
-const pages = ['Lectures','Rooms'];
+const pages = ['Lectures', 'Rooms'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function ResponsiveAppBar() {
@@ -44,7 +44,7 @@ export function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{background: '#313131'}}>
+    <AppBar position="static" style={{ background: '#313131' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -66,7 +66,7 @@ export function ResponsiveAppBar() {
             LOG
           </Typography> */}
 
-          <Box sx={{ flexGrow: 1, color:'white', display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, color: 'white', display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -97,8 +97,8 @@ export function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" 
-                  
+                  <Typography textAlign="center"
+
                   >{page}</Typography>
                 </MenuItem>
               ))}
@@ -134,36 +134,40 @@ export function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
+          {
+            !currentUser ?
+              null :
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt={currentUser?._profile.data.email} src="/static/images/avatar/2.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+          }
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={currentUser._profile.data.email} src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
         </Toolbar>
       </Container>
     </AppBar>
