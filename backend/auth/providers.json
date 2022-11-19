@@ -1,0 +1,51 @@
+{
+    "api-key": {
+        "name": "api-key",
+        "type": "api-key",
+        "disabled": true
+    },
+    "local-userpass": {
+        "name": "local-userpass",
+        "type": "local-userpass",
+        "config": {
+            "autoConfirm": true,
+            "resetFunctionName": "resetFunc",
+            "runConfirmationFunction": false,
+            "runResetFunction": true
+        },
+        "disabled": false
+    },
+    "oauth2-facebook": {
+        "name": "oauth2-facebook",
+        "type": "oauth2-facebook",
+        "config": {
+            "clientId": "531415705509907"
+        },
+        "secret_config": {
+            "clientSecret": "fb-secret"
+        },
+        "disabled": true,
+        "metadata_fields": [
+            {
+                "required": false,
+                "name": "picture"
+            },
+            {
+                "required": false,
+                "name": "last_name"
+            },
+            {
+                "required": false,
+                "name": "first_name"
+            },
+            {
+                "required": false,
+                "name": "name"
+            },
+            {
+                "required": false,
+                "name": "email"
+            }
+        ]
+    }
+}
