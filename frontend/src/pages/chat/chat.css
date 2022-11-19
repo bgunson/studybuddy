@@ -72,3 +72,27 @@
     outline: none;
     color: #fff;
 }
+
+.parent-container {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+
+}
+.chat-container {
+    position: relative;
+    height: calc(100% - 64px);
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    border-color: black;
+    border-style: solid;
+}
+
+.sketh-container{
+    position: relative;
+    height: calc(100% - 64px);
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+}
