@@ -10,7 +10,7 @@ import { Autocomplete, Stack, TextField } from "@mui/material";
 import { RoomsCard } from "./RoomsCard";
 import { Button } from "@mui/material";
 
-const YOUTUBE_KEY = 'API_KEY';
+const YOUTUBE_KEY = process.env.YOUTUBE_API_KEY || 'API_KEY';
 const query = 'math;calculus';
 
 const cardData = [
