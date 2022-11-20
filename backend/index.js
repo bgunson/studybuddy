@@ -6,7 +6,7 @@ const { Server, Socket } = require("socket.io");
 const io = new Server(server);
 const path = require('path');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, '../frontend', 'build')));
 

@@ -44,7 +44,7 @@ export function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{ background: '#313131' }}>
+    <AppBar position="sticky" style={{ background: '#313131' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
