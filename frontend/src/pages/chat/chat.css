@@ -96,3 +96,50 @@
     display: flex;
     flex-direction:row;
 }
+
+.color-button{
+    border-radius: 50%;
+    size: 4px;
+}
+
+#red{
+    background-color: red;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+#blue{
+    background-color: blue;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
+
+
+}
+
+#green{
+    background-color: green;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
+
+
+}
+
+#black{
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
+
+
+}
+
+.is-active{
+    border: 4px solid black;
+}
