@@ -10,7 +10,7 @@ import "./App.css";
 import { ResponsiveAppBar } from "./ResponsiveAppBar";
 import { ChatPage } from '../pages/chat/ChatPage';
 import { Routes, Route, Link } from "react-router-dom";
-
+import { ProfilePage } from "../pages/ProfilePage";
 
 export default function AppWithRealm() {
   return (
@@ -30,7 +30,7 @@ function App() {
       {currentUser ? 
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/profile" element={<ProfilePage />} /> */}
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/chat" element={<ChatPage />} />
       </Routes> : <WelcomePage />}
     </div>
