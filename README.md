@@ -1,4 +1,8 @@
 # StuddyBuddy
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202921585-90a3cf5e-9868-42eb-8cc2-3fcda5882f32.png" width="20%"/>
+</div>
+
 StuddyBuddy is an interactive tutoring app designed to help people of various backgrounds learn together. The app pairs users based on their learning goals, and then provides a forum for them to work together and learn from each other.
 
 ## Inspiration
