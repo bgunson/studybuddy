@@ -125,7 +125,7 @@ export function ResponsiveAppBar() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt={currentUser?._profile.data.email} src="/static/images/avatar/2.jpg" />
+                    <Avatar alt={currentUser?._profile.data.email} src="/static/images/avatar/2.jpg" /> 
                   </IconButton>
                 </Tooltip>
                 <Menu
@@ -145,6 +145,12 @@ export function ResponsiveAppBar() {
                   onClose={handleCloseUserMenu}
                 >
                   {/* {settings.map((setting) => ( */}
+                  <Link  to="/profile" style={{textDecoration: 'none' , color: 'black'}}>
+                  < MenuItem >
+                      Profile
+                    </MenuItem>
+                  </Link>
+                    <br></br>
                     <MenuItem onClick={() => logOut()}>
                       Logout
                     </MenuItem>
