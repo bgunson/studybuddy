@@ -19,6 +19,8 @@ export function WelcomePage() {
   const realmApp = useRealmApp();
   // Track whether the user is logging in or signing up for a new account
   const [isSignup, setIsSignup] = React.useState(false);
+  const [isStarted, setStarted] = React.useState(false);
+
   const toggleIsSignup = () => {
     clearErrors();
     setIsSignup(toggleBoolean);
@@ -55,66 +57,82 @@ export function WelcomePage() {
 
   return (
     <Container maxWidth="sm" className="main-container">
-      <Card className="auth-card" variant="outlined">
-        <form
-          className="auth-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const { email, password } = Object.fromEntries(formData.entries());
-            onFormSubmit({ email, password });
-          }}
-        >
-          <Typography component="h2" variant="h4" gutterBottom>
-            {isSignup ? "Sign Up" : "Log In"}
-          </Typography>
-          <NonAuthErrorAlert />
-          <TextField
-            id="input-email"
-            name="email"
-            label="Email Address"
-            variant="outlined"
-            error={Boolean(error.email)}
-            helperText={error.email ?? ""}
-          />
-          <TextField
-            id="input-password"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            label="Password"
-            variant="outlined"
-            error={Boolean(error.password)}
-            helperText={error.password ?? ""}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={toggleShowPassword}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                    }}
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button type="submit" variant="contained" color="primary">
-            {isSignup ? "Create Account" : "Log In"}
-          </Button>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => toggleIsSignup()}
-          >
-            {isSignup
-              ? "Already have an account? Log In"
-              : "Sign up for an account"}
-          </button>
-        </form>
-      </Card>
+      {
+        !isStarted ?
+          <div className="todo-items-container">
+            <Typography component="p" variant="h5">
+              Welcome, Buddy
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => setStarted(true)}
+            >
+              Get started
+            </Button>
+          </div>
+          :
+          <Card className="auth-card" variant="outlined">
+            <form
+              className="auth-form"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const { email, password } = Object.fromEntries(formData.entries());
+                onFormSubmit({ email, password });
+              }}
+            >
+              <Typography component="h2" variant="h4" gutterBottom>
+                {isSignup ? "Sign Up" : "Log In"}
+              </Typography>
+              <NonAuthErrorAlert />
+              <TextField
+                id="input-email"
+                name="email"
+                label="Email Address"
+                variant="outlined"
+                error={Boolean(error.email)}
+                helperText={error.email ?? ""}
+              />
+              <TextField
+                id="input-password"
+                type={showPassword ? "text" : "password"}
+                name="password"
+                label="Password"
+                variant="outlined"
+                error={Boolean(error.password)}
+                helperText={error.password ?? ""}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={toggleShowPassword}
+                        onMouseDown={(e) => {
+                          e.preventDefault();
+                        }}
+                      >
+                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <Button type="submit" variant="contained" color="primary">
+                {isSignup ? "Create Account" : "Log In"}
+              </Button>
+              <button
+                type="button"
+                className="link-button"
+                onClick={() => toggleIsSignup()}
+              >
+                {isSignup
+                  ? "Already have an account? Log In"
+                  : "Sign up for an account"}
+              </button>
+            </form>
+          </Card>
+      }
     </Container>
   );
 }

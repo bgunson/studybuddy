@@ -13,7 +13,7 @@ import { useDraftTodos } from "../hooks/useDraftTodos";
 import { DraftTodoItem } from "../components/DraftTodoItem";
 import { useShowLoader } from "../hooks/util-hooks";
 
-export function LandingPage() {
+export function HomePage() {
   const { loading, todos, ...todoActions } = useTodos();
   const { draftTodos, ...draftTodoActions } = useDraftTodos();
   const showLoader = useShowLoader(loading, 200);
@@ -26,33 +26,21 @@ export function LandingPage() {
       ) : (
         <div className="todo-items-container">
           <Typography component="p" variant="h5">
-            Welcome, StudyBuddy!
+            What do you want to do?
           </Typography>
           <Button
             variant="contained"
             color="primary"
-            // startIcon={<AddIcon />}
-            onClick={() => draftTodoActions.createDraftTodo()}
           >
-            Start Session
+            I am a teacher
           </Button>
-          {/* <List style={{ width: "100%" }}>
-            {todos.map((todo) => (
-              <TodoItem
-                key={String(todo._id)}
-                todo={todo}
-                todoActions={todoActions}
-              />
-            ))}
-            {draftTodos.map((draft) => (
-              <DraftTodoItem
-                key={String(draft._id)}
-                todo={draft}
-                todoActions={todoActions}
-                draftTodoActions={draftTodoActions}
-              />
-            ))}
-          </List> */}
+          <Button
+            variant="contained"
+            color="primary"
+          >
+            I am a student
+          </Button>
+          
         </div>
       )}
     </Container>

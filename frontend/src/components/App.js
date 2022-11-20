@@ -4,7 +4,7 @@ import { WelcomePage } from "../pages/WelcomePage";
 import { DashboardPage } from '../pages/DashboardPage';
 
 import { TodoItemsPage } from "../pages/TodoItemsPage";
-import { LandingPage } from "../pages/LandingPage";
+import { HomePage } from "../pages/HomePage";
 import { RealmAppProvider, useRealmApp } from "./RealmApp";
 import { ThemeProvider } from "./Theme";
 import { AppName } from "./AppName";
@@ -33,12 +33,13 @@ function App() {
       <ResponsiveAppBar/>
       {currentUser ? 
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<HomePage />} />
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/chat" element={<ChatPage/>} />
         <Route path="/chatrooms" element={<ChatRooms/>} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/login" element={<WelcomePage />} />
       </Routes> : <WelcomePage />}
     </div>
   );
