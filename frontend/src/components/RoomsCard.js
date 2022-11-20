@@ -27,6 +27,7 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import { Chip } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -45,11 +46,11 @@ export function RoomsCard(props) {
       <Card>
         <CardHeader
           avatar={
-          <Avatar alt="Remy Sharp" src="https://thispersondoesnotexist.com/image" />} // Can change this to an image
+          <Avatar alt={props.name} src="https://thispersondoesnotexist.com/image" />} // Can change this to an image
           title={props.name}
           subheader = {props.description}
           action={
-            <IconButton>
+            <IconButton href="/chat">
               <ArrowOutwardIcon />
             </IconButton>
           }
@@ -59,9 +60,14 @@ export function RoomsCard(props) {
               direction={{ xs: 'column', sm: 'row' }}
               spacing={{ xs: 1, sm: 3, md: 4 }}
             >
-              <Item> {props.lang} </Item>
+              <Item><img src={`https://flagcdn.com/w20/${props.lang.toLowerCase()}.png`} srcSet={`https://flagcdn.com/w40/${props.lang.toLowerCase()}.png 2x`}/></Item>
               <Item> 🎓 {props.tutorCount}</Item>
               <Item> 👨‍🎓 {props.studentCount}</Item>
+              {
+                props.topics?.map((topic) => {
+                  return <Item>{topic}</Item>
+                })
+              }
             </Stack>
           {/* <Typography variant="body2" color="text.secondary">John Doe is teaching geometry</Typography> */}
         </CardContent>

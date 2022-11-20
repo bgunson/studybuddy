@@ -29,6 +29,7 @@ export function RealmAppProvider({ appId, children }) {
     await currentUser?.logOut();
     await realmApp.removeUser(currentUser);
     setCurrentUser(realmApp.currentUser);
+    window.location.reload();
   }, [realmApp, currentUser]);
 
   // Override the App's currentUser & logIn properties + include the app-level logout function

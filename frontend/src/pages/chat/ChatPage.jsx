@@ -151,8 +151,8 @@ export function ChatPage() {
                     <button className={strokeColor === 'green' ? 'is-active color-button' : 'color-button'} id="green" onClick={() => {setStrokeColor("green")}}> </button>
                     <br></br>
                     <button className={strokeColor === 'blue' ? 'is-active color-button' : 'color-button'} id="blue" onClick={() => {setStrokeColor("blue")}}> </button>
-                    <button className={strokeColor === 'orange' ? 'is-active color-button' : 'color-button'} id="orange" onClick={() => {setStrokeColor("red"); }}>  </button>
-                    <button className={strokeColor === 'purple' ? 'is-active color-button' : 'color-button'} id="purple" onClick={() => {setStrokeColor("red"); }}>  </button>
+                    <button className={strokeColor === 'orange' ? 'is-active color-button' : 'color-button'} id="orange" onClick={() => {setStrokeColor("orange"); }}>  </button>
+                    <button className={strokeColor === 'purple' ? 'is-active color-button' : 'color-button'} id="purple" onClick={() => {setStrokeColor("purple"); }}>  </button>
 
                 </div>
             </Stack>

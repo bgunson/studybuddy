@@ -53,9 +53,9 @@ export function ChatRooms() {
           <Stack spacing={2}>
             <RoomsCard {...cardData}>
 
-            </RoomsCard>
+              </RoomsCard>
 
-    </Stack>
+            </Stack>
         </div>
       )}
     </Container>
