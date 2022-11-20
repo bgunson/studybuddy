@@ -8,12 +8,17 @@ import {
   Card,
   Typography,
   InputAdornment,
+  
 } from "@material-ui/core";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { useRealmApp } from "../components/RealmApp";
 import { toggleBoolean } from "../utils";
 import { useErrorAlert } from "../hooks/useErrorAlert";
+import { Stack } from "@mui/material";
+
+
+
 
 export function WelcomePage() {
   const realmApp = useRealmApp();
@@ -56,21 +61,44 @@ export function WelcomePage() {
   };
 
   return (
-    <Container maxWidth="sm" className="main-container">
+   
+    <Container fixed className="main-welcome-container" style={{display:'flex', flexDirection:'column', justifyContent:'center'}}>
       {
         !isStarted ?
-          <div className="todo-items-container">
-            <Typography component="p" variant="h5">
-              Welcome, Buddy
-            </Typography>
-            <Button
+          <Stack direction="row" spacing={10} style={{marginLeft:200}}>
+             {/* <link href="https://fonts.google.com/specimen/Gloria+Hallelujah?category=Display,Handwriting"></link> */}
+         
+            <div className="left-side-container" style={{width:400}}>
+              <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043728908941545472/DALLE_2022-11-19_20.24.54.png" width={400}></img>
+            </div>
+            <div className="right-side-container" style={{ display:'flex', flexDirection:'column',width:400}}>
+              <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043715156800184340/SBLogoFull.png" width={400}></img>
+              <div className="welcome-text-container">
+              StuddyBuddy is an interactive tutoring app designed to help people of various backgrounds learn together. 
+              The app pairs users based on their learning goals, and then provides a forum for them to work together 
+              and learn from each other.
+              </div>
+              <Button
               variant="contained"
               color="primary"
               onClick={() => setStarted(true)}
             >
               Get started
             </Button>
-          </div>
+            </div>
+            
+            {/* <Typography component="p" variant="h5">
+              Welcome, Buddy
+            </Typography> */}
+            {/* <Button
+              variant="contained"
+              color="primary"
+              onClick={() => setStarted(true)}
+            >
+              Get started
+            </Button> */}
+          
+          </Stack>
           :
           <Card className="auth-card" variant="outlined">
             <form

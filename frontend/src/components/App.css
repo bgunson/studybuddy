@@ -37,12 +37,33 @@
   height: calc(100% - 64px);
 }
 
+.main-welcome-container{
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  max-width:800;
+  height: calc(100% - 64px);
+
+}
+
+
+
 .todo-items-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
+
+}
+
+.welcome-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-right:200px;
 }
 
 .profile-container {
