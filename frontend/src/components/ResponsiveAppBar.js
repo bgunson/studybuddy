@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,8 +17,8 @@ import { useRealmApp } from './RealmApp';
 
 /*  */
 
-const pages = ['Lectures', 'Rooms'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [];
+const settings = ['Profile', 'Dashboard', 'Logout'];
 
 export function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -47,24 +48,10 @@ export function ResponsiveAppBar() {
     <AppBar position="sticky" style={{ background: '#313131' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+        <Link to="/">  
           <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOG
-          </Typography> */}
+
+        </Link>
 
           <Box sx={{ flexGrow: 1, color: 'white', display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -96,6 +83,7 @@ export function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
+                
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"
 
