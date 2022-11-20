@@ -1,5 +1,6 @@
 # Study Buddy
 StuddyBuddy is an interactive tutoring app designed to help people of various backgrounds learn together. The app pairs users based on their learning goals, and then provides a forum for them to work together and learn from each other.
+
 ## Inspiration
 
 > Barriers to education widen gaps of inequality. We wanted to create an app that anyone with an internet connection who wants to either teach or learn with others can utilize. 
@@ -29,6 +30,26 @@ StuddyBuddy is an interactive tutoring app designed to help people of various ba
 >Forming custom study groups.
 
 https://user-images.githubusercontent.com/47361247/202920301-02de8dbf-9796-4324-aac9-52dafce6f717.mp4
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202920347-55899f57-d2aa-4e51-9bd5-ec2e98c56c2c.png" width="50%"/>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202920370-8f7f2150-2f2b-49d0-b3ae-7b2331bb0828.png" width="50%"/>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202920376-21d6c201-172e-4fad-8f45-7cc6275f41d7.png" width="50%"/>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202920383-4727529c-2f25-4d10-a42c-ee78bedc0306.png" width="50%"/>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/47361247/202920392-4976df9b-cb7d-4cc6-8d29-8fece15ad1dc.png" width="50%"/>
+</div>
 
 
 ## Development
