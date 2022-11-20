@@ -9,6 +9,7 @@ import { appId } from "../realm.json";
 import "./App.css";
 import { ResponsiveAppBar } from "./ResponsiveAppBar";
 import { ChatPage } from '../pages/chat/ChatPage';
+import { ChatRooms } from '../pages/ChatRooms';
 import { Routes, Route, Link } from "react-router-dom";
 
 
@@ -31,7 +32,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
-        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/chat" element={<ChatPage/>} />
+        <Route path="/chatrooms" element={<ChatRooms/>} />
+
       </Routes> : <WelcomePage />}
     </div>
   );
