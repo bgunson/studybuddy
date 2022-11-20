@@ -35,6 +35,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes> : <WelcomePage />}
     </div>
   );

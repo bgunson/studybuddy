@@ -56,7 +56,6 @@ export function ChatPage() {
     return (
         <div className="parent-container">
             <div className="chat-container">
-                <div>
                     <div className="messages" id="chat-feed">
                         {
                             messages.map(msg => {
@@ -86,9 +85,8 @@ export function ChatPage() {
                         }
                     </div>
                     <form className="chat-form" action="" onSubmit={sendMessage}>
-                        <input className="chat-input" autocomplete="off" placeholder="Type to chat with others..." value={msgInput} onChange={e => setMsgInput(e.target.value)} /><button>Send</button>
+                        <input className="chat-input" autocomplete="off" placeholder="Type to chat with others..." value={msgInput} onChange={e => setMsgInput(e.target.value)} /><button style={{cursor: "pointer"}}>Send</button>
                     </form>
-                </div>
             </div>
 
 
