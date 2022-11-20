@@ -15,15 +15,23 @@ export function ChatPage() {
     const { currentUser } = useRealmApp();
     const canvasRef = React.createRef();
     const [messages, setMessages] = useState([]);
+    const [users, setUsers] = useState([]);
     const [strokeColor, setStrokeColor] = useState("#000000");
     const [msgInput, setMsgInput] = useState("");
     // const [socket, setSocket] = useState(null);
 
     useEffect(() => {
         if (socket == null) {
-            socket = socketIOClient(window.location.origin, { transports: ['websocket'] });
+            socket = socketIOClient(window.location.origin , { transports: ['websocket'] });
         }
         socket.emit("join chat", currentUser);
+        
+        socket.on("user change", usersList => {
+            setUsers([...usersList]);
+            console.log(users)
+        });
+        
+
         socket.on("chat message", (data) => {
             let temp = messages;
             temp.push(data)
@@ -34,6 +42,7 @@ export function ChatPage() {
         return () => {
             socket.emit("leave chat", currentUser);
             socket.off("chat message");
+            console.log("------------------we reached here--------------------")
         }
 
     }, []);
@@ -55,33 +64,10 @@ export function ChatPage() {
     };
 
 
-    let users = [
-        {
-            name: "User 1",
-            displayPicture: "https://i.pravatar.cc/150?img=1",
-        },
-        {
-            name: "User 2",
-            displayPicture: "https://i.pravatar.cc/150?img=2",
-        },
-        {
-            name: "User 3",
-            displayPicture: "https://i.pravatar.cc/150?img=3",
-        },
-        {
-            name: "User 4",
-            displayPicture: "https://i.pravatar.cc/150?img=4",
-        },
-        {
-            name: "User 5",
-            displayPicture: "https://i.pravatar.cc/150?img=5",
-        }
-    ]
-
     function DisplayAllUsers() {
         return users.map((user) => {
             return (
-                <Avatar alt = {user.name} src={user.displayPicture} style={{margin:1.5}} />
+                <Avatar alt = {user.name} style={{margin:1.5}} />
             )
         })
     }
@@ -89,7 +75,7 @@ export function ChatPage() {
     return (
         <div className="parent-container">
             <div className="chat-container">
-            <div className="avatars" style={{display: "flex"}}>
+            <div className="avatars" style={{display: "flex", zIndex:999}}>
                 <DisplayAllUsers />
             </div>    
 

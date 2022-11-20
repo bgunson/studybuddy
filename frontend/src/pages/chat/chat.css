@@ -6,10 +6,12 @@
     overflow: auto;
     overflow-x: hidden;
     position: absolute;
-    bottom: 50px;
+    /* bottom: 50px; */
+    top: 0px;
     right: 0px;
-    width: 98vw;
-    max-height: 100%;
+    width: 97%;
+    max-height: calc(100% - 68px);
+
 }
 
 
