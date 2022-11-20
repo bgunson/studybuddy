@@ -26,6 +26,7 @@ io.on("connection", (socket) => {
             name: user.profile.data.email,
             id: user.id
         };
+        io.emit("user change", Object.values(users));
         let msg = {
             content: `${users[user.id].name.split("@")[0]} has joined the chat.`,
             user: {
@@ -59,6 +60,7 @@ io.on("connection", (socket) => {
         }
         io.emit("chat message", msg);
         delete users[user.id];
+        io.emit("user change", Object.values(users));
     });
 
 });
