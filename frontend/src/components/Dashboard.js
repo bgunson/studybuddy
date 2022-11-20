@@ -15,8 +15,8 @@ const query = 'math;calculus';
 
 const cardData = [
     {
-        name: "test",
-        description: "test description",
+        name: "Robert",
+        description: "Calculus talk.",
         tutorCount: "5",
         studentCount: "10",
         lang: "GB",
@@ -25,18 +25,20 @@ const cardData = [
         ]
     },
     {
-        name: "test",
-        description: "test description",
+        name: "Jenelle",
+        description: "Basics of functional programming.",
         tutorCount: "5",
         studentCount: "10",
-        lang: "GB"
+        lang: "CA",
+        topics: ["Computer Programming", "Science"]
     },
     {
-        name: "test sregsd",
-        description: "test description",
+        name: "Tim",
+        description: "Discussing life in ancient Rome.",
         tutorCount: "5",
         studentCount: "10",
-        lang: "GB"
+        lang: "US",
+        topics: ["History"]
     }
 ];
 
@@ -44,23 +46,39 @@ export function Dashboard(props) {
     const { loading, todos, ...todoActions } = useTodos();
     const { draftTodos, ...draftTodoActions } = useDraftTodos();
     const [userTopics, setUserTopics] = useState([]);
+    const [roomCards, setRoomCards] = useState([]);
     const showLoader = useShowLoader(loading, 200);
     const [suggestedVideos, setSuggestedVideos] = useState([]);
+    const [filteredRooms, setFilteredRooms] = useState(cardData);
 
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${YOUTUBE_KEY}`)
-            .then((res) => res.json())
-            .then((res) => {
-                let items = (res.items || []).slice(0, 5);
-                setSuggestedVideos(items);
-            })
+        // fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${YOUTUBE_KEY}`)
+        //     .then((res) => res.json())
+        //     .then((res) => {
+        //         let items = (res.items || []).slice(0, 5);
+        //         setSuggestedVideos(items);
+        //     })
     }, []);
+
+    const handleSelection = (value) => {
+        setUserTopics(value);
+        console.log(value)
+        let rooms = value.length === 0 ? cardData : cardData.filter(r => {
+            let mutual = false;
+            for (const t of r.topics) {
+                if (value.includes(t))
+                    mutual = true;
+            }
+            return mutual;
+        });
+        setFilteredRooms(rooms);
+    }
 
     return (
         <div style={{ margin: '10px' }}>
             {
                 userTopics.length === 0 ?
-                    <h1 className="roll-out">Search a topic to get started.</h1> : null
+                    <h1>Search a topic to get started.</h1> : null
             }
 
             <Autocomplete
@@ -68,7 +86,7 @@ export function Dashboard(props) {
                 limitTags={2}
                 id="multiple-limit-tags"
                 options={topics}
-                onChange={(event, value) => setUserTopics(value)}
+                onChange={(event, value) => handleSelection(value)}
                 renderInput={(params) => (
                     <TextField {...params} label="Search topics" placeholder="Search topics" />
                 )}
@@ -93,7 +111,10 @@ export function Dashboard(props) {
 
             <Stack spacing={2}>
                 {
-                    cardData.map((card) => {
+                    filteredRooms.length === 0 ?
+                    <div>Sorry, it looks like there are no active rooms on this topic right now.</div>
+                    :
+                    filteredRooms.map((card) => {
                         return <RoomsCard key={card.name} {...card}></RoomsCard>
                     })
                 }

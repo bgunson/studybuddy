@@ -42,41 +42,41 @@ export function RoomsCard(props) {
   const { draftTodos, ...draftTodoActions } = useDraftTodos();
   const showLoader = useShowLoader(loading, 200);
   return (
-
-    <Card>
-      <CardHeader
-        avatar={
-          <Avatar alt={props.name} src={`https://thispersondoesnotexist.com/image?q=${props.name}`} />} // Can change this to an image
-        title={props.name}
-        subheader={props.description}
-        action={
-          <IconButton href="/chat">
-            <ArrowOutwardIcon />
-          </IconButton>
-        }
-      />
-      <CardContent>
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          spacing={{ xs: 1, sm: 3, md: 4 }}
-        >
-          <Item><img src={`https://flagcdn.com/w20/${props.lang.toLowerCase()}.png`} srcSet={`https://flagcdn.com/w40/${props.lang.toLowerCase()}.png 2x`} /></Item>
-          <Item> 🎓 {props.tutorCount}</Item>
-          <Item> 👨‍🎓 {props.studentCount}</Item>
-          {
-            props.topics?.map((topic) => {
-              return <Item>{topic}</Item>
-            })
+    
+      <Card>
+        <CardHeader
+          avatar={
+          <Avatar alt={props.name} src="https://thispersondoesnotexist.com/image" />} // Can change this to an image
+          title={props.name}
+          subheader = {props.description}
+          action={
+            <IconButton href="/chat">
+              <ArrowOutwardIcon />
+            </IconButton>
           }
-        </Stack>
-        {/* <Typography variant="body2" color="text.secondary">John Doe is teaching geometry</Typography> */}
-      </CardContent>
-      {/* <CardActions>
+        />
+        <CardContent>
+          <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={{ xs: 1, sm: 3, md: 4 }}
+            >
+              <Item><img src={`https://flagcdn.com/w20/${props.lang.toLowerCase()}.png`} srcSet={`https://flagcdn.com/w40/${props.lang.toLowerCase()}.png 2x`}/></Item>
+              <Item> 🎓 {props.tutorCount}</Item>
+              <Item> 👨‍🎓 {props.studentCount}</Item>
+              {
+                props.topics?.map((topic) => {
+                  return <Item>{topic}</Item>
+                })
+              }
+            </Stack>
+          {/* <Typography variant="body2" color="text.secondary">John Doe is teaching geometry</Typography> */}
+        </CardContent>
+        {/* <CardActions>
           <Button>Share</Button>
           <IconButton>
               <AddBoxIcon />
             </IconButton>
         </CardActions> */}
-    </Card>
+      </Card>
   );
 }
