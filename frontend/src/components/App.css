@@ -3,7 +3,7 @@
   margin: 0;
   background: white;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .App-logo {
@@ -45,6 +45,14 @@
   gap: 24px;
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
 .auth-card {
   display: flex;
   flex-direction: column;
@@ -55,4 +63,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.app-icon {
+  transition: all ease 0.25s;
+}
+
+.app-icon:hover {
+  transform: scale(1.1);
 }

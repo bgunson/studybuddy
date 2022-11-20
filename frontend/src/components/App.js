@@ -1,5 +1,8 @@
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
 import { WelcomePage } from "../pages/WelcomePage";
+
+import { DashboardPage } from '../pages/DashboardPage';
+
 import { TodoItemsPage } from "../pages/TodoItemsPage";
 import { LandingPage } from "../pages/LandingPage";
 import { RealmAppProvider, useRealmApp } from "./RealmApp";
@@ -11,7 +14,7 @@ import { ResponsiveAppBar } from "./ResponsiveAppBar";
 import { ChatPage } from '../pages/chat/ChatPage';
 import { ChatRooms } from '../pages/ChatRooms';
 import { Routes, Route, Link } from "react-router-dom";
-
+import { ProfilePage } from "../pages/ProfilePage";
 
 export default function AppWithRealm() {
   return (
@@ -34,7 +37,8 @@ function App() {
         {/* <Route path="/profile" element={<ProfilePage />} /> */}
         <Route path="/chat" element={<ChatPage/>} />
         <Route path="/chatrooms" element={<ChatRooms/>} />
-
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes> : <WelcomePage />}
     </div>
   );

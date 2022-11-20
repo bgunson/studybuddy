@@ -2,15 +2,19 @@ import React, { useState, useEffect } from "react"
 import socketIOClient from "socket.io-client";
 import { useRealmApp } from "../../components/RealmApp";
 import { Chip } from "@material-ui/core";
+import { Button } from '@mui/material';
 import "./chat.css";
 import { ReactSketchCanvas } from 'react-sketch-canvas';
+import Stack from '@mui/material/Stack';
 
 
 let socket = null;
 
 export function ChatPage() {
     const { currentUser } = useRealmApp();
+    const canvasRef = React.createRef();
     const [messages, setMessages] = useState([]);
+    const [strokeColor, setStrokeColor] = useState("#000000");
     const [msgInput, setMsgInput] = useState("");
     // const [socket, setSocket] = useState(null);
 
@@ -52,7 +56,6 @@ export function ChatPage() {
     return (
         <div className="parent-container">
             <div className="chat-container">
-                <div>
                     <div className="messages" id="chat-feed">
                         {
                             messages.map(msg => {
@@ -82,21 +85,43 @@ export function ChatPage() {
                         }
                     </div>
                     <form className="chat-form" action="" onSubmit={sendMessage}>
-                        <input className="chat-input" autocomplete="off" placeholder="Type to chat with others..." value={msgInput} onChange={e => setMsgInput(e.target.value)} /><button>Send</button>
+                        <input className="chat-input" autocomplete="off" placeholder="Type to chat with others..." value={msgInput} onChange={e => setMsgInput(e.target.value)} /><button style={{cursor: "pointer"}}>Send</button>
                     </form>
-                </div>
             </div>
 
 
 
-                <ReactSketchCanvas
-                    style={canvasStyles}
-                    width="70%"
-                    height="calc(100% - 64px)%"
-                    strokeWidth={4}
-                    strokeColor="red"
-                />
-        
+            <ReactSketchCanvas
+                ref={canvasRef}
+                style={canvasStyles}
+                width="70%"
+                height="calc(100% - 64px)%"
+                strokeWidth={4}
+                strokeColor={strokeColor}
+                backgroundImage="https://upload.wikimedia.org/wikipedia/commons/7/70/Graph_paper_scan_1600x1000_%286509259561%29.jpg"
+            />
+
+            <Stack className="button-container" direction="column" spacing={3} margin={4}>
+            <Button onClick={() => { canvasRef.current.undo()}} variant="contained">Undo ↩</Button>
+                <Button onClick={() => { canvasRef.current.redo()}} variant="contained" >Redo ↪</Button>
+                <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Eraser 🧹 </Button>
+                
+                <Button onClick={() => { canvasRef.current.eraseMode(false)}} variant="contained">Pen 🖊️ </Button>
+                <Button onClick={() => { canvasRef.current.clearCanvas()}}  variant="contained" color="error" >Clear 🗑️</Button>
+                <div className = "color-button-container" direction="row" style={{width:110}}>
+                    <button className={strokeColor === 'red' ? 'is-active color-button' : 'color-button'} id="red" onClick={() => {setStrokeColor("red"); }}>  </button>
+                    <button className={strokeColor === 'black' ? 'is-active color-button' : 'color-button'} id="black" onClick={() => {setStrokeColor("black")}}> </button>
+                    <button className={strokeColor === 'green' ? 'is-active color-button' : 'color-button'} id="green" onClick={() => {setStrokeColor("green")}}> </button>
+                    <br></br>
+                    <button className={strokeColor === 'blue' ? 'is-active color-button' : 'color-button'} id="blue" onClick={() => {setStrokeColor("blue")}}> </button>
+                    <button className={strokeColor === 'orange' ? 'is-active color-button' : 'color-button'} id="orange" onClick={() => {setStrokeColor("red"); }}>  </button>
+                    <button className={strokeColor === 'purple' ? 'is-active color-button' : 'color-button'} id="purple" onClick={() => {setStrokeColor("red"); }}>  </button>
+
+                </div>
+            </Stack>
+
+
+
 
         </div>
 
