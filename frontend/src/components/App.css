@@ -34,7 +34,7 @@
   padding-top: 48px;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 64px);
+  /* height: calc(100% - 64px); */
 }
 
 .todo-items-container {
@@ -71,4 +71,9 @@
 
 .app-icon:hover {
   transform: scale(1.1);
+}
+
+.dashboard-search {
+  width: 100%;
+  border-radius: 25%;
 }

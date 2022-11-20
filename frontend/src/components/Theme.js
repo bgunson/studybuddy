@@ -9,6 +9,11 @@ const themeConfig = {
     primary: colors.green,
     secondary: colors.green,
   },
+  typography: {
+    button: {
+      textTransform: 'none'
+    }
+  }
 }
 
 const theme = createMuiTheme(themeConfig);
