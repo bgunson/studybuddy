@@ -1,14 +1,5 @@
-# studybuddy
-
-
-## Development
-```
-cd frontend
-npm install
-npm run start
-```
-
-
+# sStudy Buddy
+StuddyBuddy is an interactive tutoring app designed to help people of various backgrounds learn together. The app pairs users based on their learning goals, and then provides a forum for them to work together and learn from each other.
 ## Inspiration
 
 > Barriers to education widen gaps of inequality. We wanted to create an app that anyone with an internet connection who wants to either teach or learn with others can utilize. 
@@ -36,3 +27,22 @@ npm run start
 >Points/Karma System earned by participation. 
 >Self-Evaluation tools and quizzes based on subject.
 >Forming custom study groups.
+
+https://user-images.githubusercontent.com/47361247/202920301-02de8dbf-9796-4324-aac9-52dafce6f717.mp4
+
+
+## Development
+```
+cd frontend
+npm install
+npm run start
+```
+
+## Production
+```
+cd frontend & npm run build
+```
+```
+cd backend & npm install
+node index.js
+```
