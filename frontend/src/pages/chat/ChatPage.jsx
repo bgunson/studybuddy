@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 import "./chat.css";
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 
 
 let socket = null;
@@ -53,9 +54,45 @@ export function ChatPage() {
         borderRadius: '0.25rem',
     };
 
+
+    let users = [
+        {
+            name: "User 1",
+            displayPicture: "https://i.pravatar.cc/150?img=1",
+        },
+        {
+            name: "User 2",
+            displayPicture: "https://i.pravatar.cc/150?img=2",
+        },
+        {
+            name: "User 3",
+            displayPicture: "https://i.pravatar.cc/150?img=3",
+        },
+        {
+            name: "User 4",
+            displayPicture: "https://i.pravatar.cc/150?img=4",
+        },
+        {
+            name: "User 5",
+            displayPicture: "https://i.pravatar.cc/150?img=5",
+        }
+    ]
+
+    function DisplayAllUsers() {
+        return users.map((user) => {
+            return (
+                <Avatar alt = {user.name} src={user.displayPicture} style={{margin:1.5}} />
+            )
+        })
+    }
+
     return (
         <div className="parent-container">
             <div className="chat-container">
+            <div className="avatars" style={{display: "flex"}}>
+                <DisplayAllUsers />
+            </div>    
+
                     <div className="messages" id="chat-feed">
                         {
                             messages.map(msg => {
