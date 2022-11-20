@@ -9,9 +9,9 @@ import YoutubeEmbed from "../components/YoutubeEmbed";
 import { Autocomplete, Stack, TextField } from "@mui/material";
 import { RoomsCard } from "./RoomsCard";
 import { Button } from "@mui/material";
+import { useTopics } from "../hooks/useTopics";
 
-const YOUTUBE_KEY = process.env.YOUTUBE_API_KEY || 'API_KEY';
-const query = 'math;calculus';
+const YOUTUBE_KEY = process.env.REACT_APP_YOUTUBE_API_KEY || 'API_KEY';
 
 const cardData = [
     {
@@ -47,22 +47,16 @@ export function Dashboard(props) {
     const { draftTodos, ...draftTodoActions } = useDraftTodos();
     const [userTopics, setUserTopics] = useState([]);
     const [roomCards, setRoomCards] = useState([]);
+    const { topics } = useTopics();
     const showLoader = useShowLoader(loading, 200);
     const [suggestedVideos, setSuggestedVideos] = useState([]);
     const [filteredRooms, setFilteredRooms] = useState(cardData);
 
     useEffect(() => {
-        // fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=${YOUTUBE_KEY}`)
-        //     .then((res) => res.json())
-        //     .then((res) => {
-        //         let items = (res.items || []).slice(0, 5);
-        //         setSuggestedVideos(items);
-        //     })
     }, []);
 
     const handleSelection = (value) => {
         setUserTopics(value);
-        console.log(value)
         let rooms = value.length === 0 ? cardData : cardData.filter(r => {
             let mutual = false;
             for (const t of r.topics) {
@@ -72,6 +66,14 @@ export function Dashboard(props) {
             return mutual;
         });
         setFilteredRooms(rooms);
+        if (value.length > 0) {
+            fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${value.join(';')}&key=${YOUTUBE_KEY}`)
+                .then((res) => res.json())
+                .then((res) => {
+                    let items = (res.items || []).slice(0, 5);
+                    setSuggestedVideos(items);
+                });
+        }
     }
 
     return (
@@ -85,7 +87,7 @@ export function Dashboard(props) {
                 multiple
                 limitTags={2}
                 id="multiple-limit-tags"
-                options={topics}
+                options={topics.map(t => t.name)}
                 onChange={(event, value) => handleSelection(value)}
                 renderInput={(params) => (
                     <TextField {...params} label="Search topics" placeholder="Search topics" />
@@ -112,11 +114,11 @@ export function Dashboard(props) {
             <Stack spacing={2}>
                 {
                     filteredRooms.length === 0 ?
-                    <div>Sorry, it looks like there are no active rooms on this topic right now.</div>
-                    :
-                    filteredRooms.map((card) => {
-                        return <RoomsCard key={card.name} {...card}></RoomsCard>
-                    })
+                        <div>Sorry, it looks like there are no active rooms on this topic right now.</div>
+                        :
+                        filteredRooms.map((card) => {
+                            return <RoomsCard key={card.name} {...card}></RoomsCard>
+                        })
                 }
             </Stack>
 
@@ -142,12 +144,12 @@ export function Dashboard(props) {
 }
 
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top]
+// // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top]
 
-const topics = [
-    "Math",
-    "Science",
-    "Computer Programming",
-    "Art",
-    "History",
-];
+// const topics = [
+//     "Math",
+//     "Science",
+//     "Computer Programming",
+//     "Art",
+//     "History",
+// ];
