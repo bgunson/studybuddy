@@ -75,7 +75,7 @@ export function WelcomePage() {
             </div>
             <div className="right-side-container" style={{ display: 'flex', flexDirection: 'column', width: 400 }}>
               <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043715156800184340/SBLogoFull.png" width={400}></img>
-              <div className="welcome-text-container">
+              <div className="welcome-text-container" style={{fontSize: '13px'}}>
                 StuddyBuddy is an interactive tutoring app designed to help people of various backgrounds learn together.
                 The app pairs users based on their learning goals, and then provides a forum for them to work together
                 and learn from each other.
