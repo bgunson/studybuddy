@@ -102,10 +102,12 @@ export function ChatPage() {
             />
 
             <Stack className="button-container" direction="column" spacing={4} margin={5}>
-                <Button onClick={() => { canvasRef.current.undo()}} variant="contained">Undo</Button>
-                <Button onClick={() => { canvasRef.current.redo()}} variant="contained" >Redo</Button>
-                <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Eraser</Button>
-                <Button onClick={() => { canvasRef.current.clearCanvas()}}  variant="contained" color="error" >Clear</Button>
+            <Button onClick={() => { canvasRef.current.undo()}} variant="contained">Undo ↩</Button>
+                <Button onClick={() => { canvasRef.current.redo()}} variant="contained" >Redo ↪</Button>
+                <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Eraser 🧹 </Button>
+                
+                <Button onClick={() => { canvasRef.current.eraseMode(false)}} variant="contained">Pen 🖊️ </Button>
+                <Button onClick={() => { canvasRef.current.clearCanvas()}}  variant="contained" color="error" >Clear 🗑️</Button>
                 <div className = "color-button-container" firection="row" >
                     <button className={strokeColor === 'red' ? 'is-active color-button' : 'color-button'} id="red" onClick={() => {setStrokeColor("red"); }}>  </button>
                     <button className={strokeColor === 'black' ? 'is-active color-button' : 'color-button'} id="black" onClick={() => {setStrokeColor("black")}}> </button>
