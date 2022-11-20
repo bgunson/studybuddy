@@ -127,7 +127,7 @@ export function ChatPage() {
             <Stack className="button-container" direction="column" spacing={3} margin={4}>
             <Button onClick={() => { canvasRef.current.undo()}} variant="contained">Undo ↩</Button>
                 <Button onClick={() => { canvasRef.current.redo()}} variant="contained" >Redo ↪</Button>
-                <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Eraser 🧹 </Button>
+                <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Erase 🧹 </Button>
                 
                 <Button onClick={() => { canvasRef.current.eraseMode(false)}} variant="contained">Pen 🖊️ </Button>
                 <Button onClick={() => { canvasRef.current.clearCanvas()}}  variant="contained" color="error" >Clear 🗑️</Button>
@@ -141,6 +141,7 @@ export function ChatPage() {
                     <button className={strokeColor === 'purple' ? 'is-active color-button' : 'color-button'} id="purple" onClick={() => {setStrokeColor("purple"); }}>  </button>
 
                 </div>
+                <Button href="https://zoom.us/start/webmeeting" target="_blank" color="primary"  variant="outlined">Zoom 📞</Button>
             </Stack>
 
 
