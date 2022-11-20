@@ -86,18 +86,14 @@
     width: 30%;
     display: flex;
     flex-direction: row;
-    border-color: black;
-    border-style: solid;
+    background-color: #f5f5f5;
+    /* border-color: black; */
+    /* border-style: solid; */
 }
 
-.sketh-container{
-    position: relative;
-    height: calc(100% - 64px);
-    width: 100%;
-    display: flex;
-    flex-direction:row;
+.parent-container{
+    background-color: #f5f5f5;
 }
-
 .color-button{
     border-radius: 50%;
     size: 4px;
@@ -127,8 +123,6 @@
     width: 30px;
     cursor: pointer;
     margin: 3px;
-
-
 }
 
 #black{
@@ -137,8 +131,22 @@
     width: 30px;
     cursor: pointer;
     margin: 3px;
+}
 
+#purple{
+    background-color: purple;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
+}
 
+#orange{
+    background-color: orange;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 3px;
 }
 
 .is-active{

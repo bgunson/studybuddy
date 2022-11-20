@@ -45,11 +45,11 @@ export function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" style={{ background: '#313131' }}>
+    <AppBar class="mat-elevation-z0" position="sticky" style={{ background: 'white' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Link to="/">  
-          <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <img src="https://cdn.discordapp.com/attachments/1043592944504017066/1043644600990052472/SB_logo.png" width={50} class="app-icon" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
         </Link>
 
@@ -83,7 +83,7 @@ export function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                
+
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"
 

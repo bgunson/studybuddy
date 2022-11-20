@@ -101,18 +101,21 @@ export function ChatPage() {
                 backgroundImage="https://upload.wikimedia.org/wikipedia/commons/7/70/Graph_paper_scan_1600x1000_%286509259561%29.jpg"
             />
 
-            <Stack className="button-container" direction="column" spacing={4} margin={5}>
+            <Stack className="button-container" direction="column" spacing={3} margin={4}>
             <Button onClick={() => { canvasRef.current.undo()}} variant="contained">Undo ↩</Button>
                 <Button onClick={() => { canvasRef.current.redo()}} variant="contained" >Redo ↪</Button>
                 <Button onClick={() => { canvasRef.current.eraseMode(true)}} variant="contained">Eraser 🧹 </Button>
                 
                 <Button onClick={() => { canvasRef.current.eraseMode(false)}} variant="contained">Pen 🖊️ </Button>
                 <Button onClick={() => { canvasRef.current.clearCanvas()}}  variant="contained" color="error" >Clear 🗑️</Button>
-                <div className = "color-button-container" firection="row" >
+                <div className = "color-button-container" direction="row" style={{width:110}}>
                     <button className={strokeColor === 'red' ? 'is-active color-button' : 'color-button'} id="red" onClick={() => {setStrokeColor("red"); }}>  </button>
                     <button className={strokeColor === 'black' ? 'is-active color-button' : 'color-button'} id="black" onClick={() => {setStrokeColor("black")}}> </button>
                     <button className={strokeColor === 'green' ? 'is-active color-button' : 'color-button'} id="green" onClick={() => {setStrokeColor("green")}}> </button>
+                    <br></br>
                     <button className={strokeColor === 'blue' ? 'is-active color-button' : 'color-button'} id="blue" onClick={() => {setStrokeColor("blue")}}> </button>
+                    <button className={strokeColor === 'orange' ? 'is-active color-button' : 'color-button'} id="orange" onClick={() => {setStrokeColor("red"); }}>  </button>
+                    <button className={strokeColor === 'purple' ? 'is-active color-button' : 'color-button'} id="purple" onClick={() => {setStrokeColor("red"); }}>  </button>
 
                 </div>
             </Stack>

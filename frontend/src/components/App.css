@@ -64,3 +64,11 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.app-icon {
+  transition: all ease 0.25s;
+}
+
+.app-icon:hover {
+  transform: scale(1.1);
+}
