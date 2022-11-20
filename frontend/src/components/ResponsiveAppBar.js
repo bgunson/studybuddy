@@ -38,9 +38,6 @@ export function ResponsiveAppBar() {
   };
 
   const handleCloseUserMenu = (setting) => {
-    if (setting.toLowerCase() === 'logout') {
-      logOut();
-    }
     setAnchorElUser(null);
   };
 
@@ -147,11 +144,11 @@ export function ResponsiveAppBar() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
-                      <Typography textAlign="center">{setting}</Typography>
+                  {/* {settings.map((setting) => ( */}
+                    <MenuItem onClick={() => logOut()}>
+                      Logout
                     </MenuItem>
-                  ))}
+                  {/* ))} */}
                 </Menu>
               </Box>
           }

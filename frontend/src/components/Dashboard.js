@@ -94,7 +94,7 @@ export function Dashboard(props) {
             <Stack spacing={2}>
                 {
                     cardData.map((card) => {
-                        return <RoomsCard {...card}></RoomsCard>
+                        return <RoomsCard key={card.name} {...card}></RoomsCard>
                     })
                 }
             </Stack>
